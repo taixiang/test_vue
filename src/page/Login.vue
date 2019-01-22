@@ -47,7 +47,11 @@
     methods: {
       submitForm (ruleModel) {
         this.$refs.ruleModel.validate((valid) => {
-          this.$router.push("/blog")
+          console.log(this.ruleModel.name)
+          this.$axios.post('http://127.0.0.1:8000/blog/login', this.ruleModel).then((v) => {
+            console.log(v)
+          })
+//          this.$router.push("/blog")
           if (valid) {
           } else {
           }
