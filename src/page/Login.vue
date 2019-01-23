@@ -1,5 +1,5 @@
 <template>
-  <div class="login-wrap">
+  <div class="login-wrap a_loading">
     <div class="ms-login">
       <div class="ms-title">后台管理系统</div>
       <el-form class="ms-content" labelWidth="0px" v-bind:model="ruleModel" :rules="rules" ref="ruleModel">
@@ -47,15 +47,25 @@
     methods: {
       submitForm (ruleModel) {
         this.$refs.ruleModel.validate((valid) => {
-          console.log(this.ruleModel.name)
-          this.$axios.post('http://127.0.0.1:8000/blog/login', this.ruleModel).then((v) => {
-            console.log(v)
-          })
+//          this.$get("http://127.0.0.1:8000/api/login/").then((v)=>{
+//            console.log(v)
+//          })
+
 //          this.$router.push("/blog")
           if (valid) {
-          } else {
+            this.$post('http://127.0.0.1:8000/blog/login', this.ruleModel).then((v) => {
+              console.log(v)
+              localStorage.setItem('user', JSON.stringify(this.ruleModel))
+//              this.$router.push('/blog')
+            })
           }
         })
+      }
+    },
+    created: function () {
+      var user = localStorage.getItem('user')
+      if (user) {
+        this.ruleModel = JSON.parse(user)
       }
     }
   }
