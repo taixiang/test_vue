@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="collapse-btn" @click="collapse">
+    <div class="collapse-btn" @click="collapseEvent">
       <i class="el-icon-menu"></i>
     </div>
     <div class="title">后台管理</div>
@@ -10,39 +10,44 @@
 </template>
 
 <script>
+  import bus from '../util/bus'
+
   export default {
     data () {
-      return {}
+      return {
+        collapse: false
+      }
     },
-    methods:{
-      collapse(){
-        console.log("=====================")
-
+    methods: {
+      collapseEvent () {
+        this.collapse = !this.collapse
+        bus.$emit('collapse', this.collapse)
       }
     }
   }
 </script>
 <style scoped>
   .header {
-    height: 70px;
-    color: white;
+    height: 64px;
+    color: #666;
     font-size: 22px;
+    border-bottom: 1px #eee solid;
   }
 
   .collapse-btn {
     float: left;
-    line-height: 70px;
+    line-height: 64px;
     padding: 0 21px;
     cursor: pointer;
   }
 
   .title {
     float: left;
-    line-height: 70px;
+    line-height: 64px;
   }
 
   .header-right {
     float: right;
-    line-height: 70px;
+    line-height: 64px;
   }
 </style>
