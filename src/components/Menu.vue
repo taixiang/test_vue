@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <el-menu class="el_menu_left" :collapse="collapse" backgroundColor="#fff" textColor="#868E8E"
-             activeTextColor="#222">
+             activeTextColor="#222" router :defaultActive="onRoutes">
       <template v-for="item in items">
         <template v-if="item.subs">
           <el-submenu :index="item.index">
@@ -67,6 +67,11 @@
             title: '我的'
           }
         ]
+      }
+    },
+    computed:{
+      onRoutes(){
+        return this.$route.path.replace("/","")
       }
     },
     created () {

@@ -56,7 +56,7 @@
             this.$post('http://127.0.0.1:8000/blog/login', this.ruleModel).then((v) => {
               console.log(v)
               localStorage.setItem('user', JSON.stringify(this.ruleModel))
-//              this.$router.push('/blog')
+//              this.$router.push('/home')
             })
           }
         })

@@ -4,6 +4,7 @@ import HelloWorld from '../components/HelloWorld.vue'
 import Login from '../page/Login.vue'
 import Home from '../page/Home.vue'
 import Blog from '../page/Blog.vue'
+import Analyze from '../page/Analyze.vue'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/home',
       component: Home,
       children: [
+        {
+          path: '/home',
+          name: 'home',
+          component: Analyze
+        },
         {
           path: '/blog',
           name: 'blog',
