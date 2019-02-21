@@ -2,13 +2,15 @@ import axios from 'axios'
 import { load, hideLoad, showSuccess, showError} from './loading'
 
 //get请求
-export function get (url, params = {}, loading = true) {
+export function get (url, params = {}, loading = true, isShow) {
   load(loading)
   return axios.get(url, {params}) // {params} 等同于 {params:params}
     .then(response => {
       hideLoad(loading)
       if (response.data.code == 200) {
-        showSuccess(response.data.msg)
+        if(isShow){
+          showSuccess(response.data.msg)
+        }
         return response.data
       }else {
         showError(response.data.msg)

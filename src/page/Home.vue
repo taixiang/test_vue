@@ -14,6 +14,7 @@
   import bus from '../util/bus'
 
   export default {
+    name:'Home',
     data(){
       return {
         collapse:false

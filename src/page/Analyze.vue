@@ -6,7 +6,7 @@
           <div class="grid-div grid-icon1">
             <i class="el-icon-lx-visit grid-con-icon"></i>
             <div class="grid-cont-right">
-              <div class="grid-num">1234</div>
+              <div class="grid-num">{{total}}</div>
               <div>总访问量</div>
             </div>
           </div>
@@ -17,7 +17,7 @@
           <div class="grid-div grid-icon2">
             <i class="el-icon-lx-num grid-con-icon"></i>
             <div class="grid-cont-right">
-              <div class="grid-num">1234</div>
+              <div class="grid-num">{{blog_count}}</div>
               <div>文章数</div>
             </div>
           </div>
@@ -28,7 +28,7 @@
           <div class="grid-div grid-icon3">
             <i class="el-icon-lx-people grid-con-icon"></i>
             <div class="grid-cont-right">
-              <div class="grid-num">1234</div>
+              <div class="grid-num">{{me_count}}</div>
               <div>关于我</div>
             </div>
           </div>
@@ -42,10 +42,10 @@
             <span>文章</span>
             <span>阅读数</span>
           </div>
-          <template>
-            <div class="blog_con">
-              <span class="blog_line">社会主义社会主义社会主义社会主</span>
-              <span>阅读数</span>
+          <template >
+            <div class="blog_con" v-for="item in blogs">
+              <span class="blog_line">{{item.title}}</span>
+              <span>{{item.count}}</span>
             </div>
           </template>
         </el-card>
@@ -70,7 +70,26 @@
 </template>
 
 <script>
-
+  export default {
+    name: 'analyze',
+    data: function () {
+      return {
+        total: '',
+        blog_count:'',
+        me_count:'',
+        blogs:[]
+      }
+    },
+    created: function () {
+      this.$get(this.$api.home_url).then(v => {
+        console.log(v)
+        this.total = v.data.total
+        this.blog_count = v.data.blog_count
+        this.me_count = v.data.me_count
+        this.blogs = v.data.blogs
+      })
+    }
+  }
 </script>
 
 <style scoped>
@@ -129,10 +148,13 @@
     justify-content: space-between;
     font-size: 14px;
   }
-  .blog_con{
+
+  .blog_con {
     font-size: 16px;
+    margin-bottom: 18px;
   }
-  .blog_line{
+
+  .blog_line {
     flex: 1;
     /*text-overflow: ellipsis;*/
     overflow: hidden;

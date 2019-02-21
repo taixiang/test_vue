@@ -8,6 +8,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/icon.css'
 import { get, post } from './util/http'
+import api from './util/api'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -16,7 +17,7 @@ Vue.use(ElementUI)
 Vue.prototype.$axios = axios
 Vue.prototype.$get = get
 Vue.prototype.$post = post
-
+Vue.prototype.$api = api
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
