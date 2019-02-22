@@ -52,13 +52,14 @@
       </el-col>
       <el-col :span="8">
         <el-card shadow="hover">
-          <div slot="header">
-            分类
+          <div slot="header" class="blog_head">
+            <span>分类</span>
+            <span>数量</span>
           </div>
           <template>
-            <div class="blog_con">
-              <span class="blog_line">python</span>
-              <span>12</span>
+            <div class="blog_con" v-for="item in types">
+              <span class="blog_line">{{item.name}}</span>
+              <span>{{item.count}}</span>
             </div>
           </template>
         </el-card>
@@ -77,7 +78,8 @@
         total: '',
         blog_count:'',
         me_count:'',
-        blogs:[]
+        blogs:[],
+        types:[]
       }
     },
     created: function () {
@@ -87,6 +89,7 @@
         this.blog_count = v.data.blog_count
         this.me_count = v.data.me_count
         this.blogs = v.data.blogs
+        this.types = v.data.types
       })
     }
   }
