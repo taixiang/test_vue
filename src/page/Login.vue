@@ -4,7 +4,7 @@
       <div class="ms-title">后台管理系统</div>
       <el-form class="ms-content" labelWidth="0px" v-bind:model="ruleModel" :rules="rules" ref="ruleModel">
         <el-form-item prop="name">
-          <el-input placeholder="账号" v-model="ruleModel.name">
+          <el-input placeholder="账号" v-model="ruleModel.name" >
             <el-button slot="prepend" icon="el-icon-lx-people"></el-button>
           </el-input>
         </el-form-item>
@@ -13,7 +13,7 @@
             <el-button slot="prepend" icon="el-icon-lx-lock"></el-button>
           </el-input>
         </el-form-item>
-        <el-button type="primary" class="login-btn" v-on:click="submitForm('ruleModel')" nativeType="submit">
+        <el-button type="primary" class="login-btn" v-on:click="submitForm('ruleModel')" nativeType="submit" @click.prevent="submitForm" >
           登录
         </el-button>
       </el-form>

@@ -3,6 +3,7 @@ const login_url = base_url + 'login'
 const home_url = base_url + 'home'
 const blog_url = base_url + 'blogs'
 export default {
+  base_url,
   login_url,
   home_url,
   blog_url

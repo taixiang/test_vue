@@ -5,6 +5,7 @@ import Login from '../page/Login.vue'
 import Home from '../page/Home.vue'
 import Blog from '../page/Blog.vue'
 import Analyze from '../page/Analyze.vue'
+import BlogDetail from '../page/BlogDetail.vue'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
           path: '/blog',
           name: 'blog',
           component: Blog
+        },
+        {
+          path:'/blog/:id',
+          name:'blogDetail',
+          component:BlogDetail
         }
       ]
     },
