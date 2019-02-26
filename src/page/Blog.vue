@@ -39,7 +39,6 @@
     methods: {
       pageChange: function (page) {
         this.$get(this.$api.blog_url, {page}).then(v => {
-          console.log(v)
           this.blogs = v.data.blogs
           this.totalNum = v.data.total_page
         })

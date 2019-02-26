@@ -13,7 +13,7 @@
             <el-button slot="prepend" icon="el-icon-lx-lock"></el-button>
           </el-input>
         </el-form-item>
-        <el-button type="primary" class="login-btn" v-on:click="submitForm('ruleModel')" nativeType="submit" @click.prevent="submitForm" >
+        <el-button type="primary" class="login-btn"  nativeType="submit" @click.prevent="submitForm" >
           登录
         </el-button>
       </el-form>
@@ -48,10 +48,12 @@
       submitForm (ruleModel) {
         this.$refs.ruleModel.validate((valid) => {
           if (valid) {
+            console.log("valid========")
             this.$post(this.$api.login_url, this.ruleModel).then((v) => {
-              console.log(v)
-              localStorage.setItem('user', JSON.stringify(this.ruleModel))
-              this.$router.push('/home')
+              if(v != null){
+                localStorage.setItem('user', JSON.stringify(this.ruleModel))
+                this.$router.push('/home')
+              }
             })
           }
         })

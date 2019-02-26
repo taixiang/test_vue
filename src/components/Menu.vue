@@ -38,32 +38,32 @@
         items: [
           {
             icon: 'el-icon-lx-home',
-            index: 'home',
+            index: '/home',
             title: '首页'
           },
           {
             icon: 'el-icon-lx-blog',
-            index: 'blog',
+            index: '/blog',
             title: '博客'
           },
           {
             icon: 'el-icon-lx-type',
-            index: 'type',
+            index: '/type',
             title: '分类'
           },
           {
             icon: 'el-icon-lx-img',
-            index: 'img',
+            index: '/img',
             title: '字符画'
           },
           {
             icon: 'el-icon-lx-file',
-            index: 'file',
+            index: '/file',
             title: 'word转html'
           },
           {
             icon: 'el-icon-lx-people',
-            index: 'me',
+            index: '/me',
             title: '我的'
           }
         ]

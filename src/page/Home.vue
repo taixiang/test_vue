@@ -3,7 +3,10 @@
     <v-header></v-header>
     <v-menu></v-menu>
     <div class="content_ a_loading" :class="{'content_col':collapse}">
-      <router-view></router-view>
+      <div class="page_">
+        <router-view></router-view>
+      </div>
+
     </div>
   </div>
 </template>
@@ -42,6 +45,11 @@
     left: 200px;
     right: 0;
     bottom: 0;
+  }
+  .page_{
+    width: auto;
+    height: 100%;
+    overflow-y: scroll;
   }
   .content_col{
     left: 64px;
